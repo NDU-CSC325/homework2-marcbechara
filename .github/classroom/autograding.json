@@ -1,0 +1,37 @@
+{
+
+    "tests": [
+      {
+        "name": "schedule",
+        "setup": "",
+        "run": "cd tests;build/testAll Problem1",
+        "input": "",
+        "output": "",
+        "comparison": "included",
+        "timeout": 2,
+        "points": 40
+      },
+
+      {
+        "name": "stock",
+        "setup": "",
+        "run": "cd tests;build/testAll Problem2",
+        "input": "",
+        "output": "",
+        "comparison": "included",
+        "timeout": 2,
+        "points": 35
+      },
+      {
+        "name": "gas",
+        "setup": "",
+        "run": "cd tests;build/testAll Problem3",
+        "input": "",
+        "output": "",
+        "comparison": "included",
+        "timeout": 2,
+        "points": 25
+      }
+      
+    ]
+  }

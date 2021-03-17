@@ -1,0 +1,19 @@
+name: sendEvent
+on:
+  issue_comment:
+
+          ##workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  send:
+          #  if: ${{(github.run_number<11 && github.event.issue.pull_request && contains(github.event.comment.body,'/eval'))}}
+     runs-on: ubuntu-latest
+     steps:
+         - name: send dispatch
+           uses: peter-evans/repository-dispatch@v1
+           with:
+              token: ${{ secrets.workflow_token }}
+              repository: NDU-CSC325/autograding
+              event-type: autograde
+              client-payload: '{"run_number":${{github.run_number}},"ref":"${{github.head_ref}}","run_id":"${{github.run_id}}","repo":"${{github.repository}}"}'
