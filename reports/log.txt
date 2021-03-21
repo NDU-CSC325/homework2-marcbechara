@@ -1,0 +1,69 @@
+----------------------------------
+BEGIN TEST schedule
+CHECK( completion==exp_completion )
+0 == 109
+RESULT=false
+CHECK( completion==exp_completion )
+0 == 96
+RESULT=false
+CHECK( completion==exp_completion )
+0 == 117
+RESULT=false
+CHECK( completion==exp_completion )
+0 == 79
+RESULT=false
+CHECK( completion==exp_completion )
+0 == 80
+RESULT=false
+END TEST schedule
+----------------------------------
+
+
+----------------------------------
+BEGIN TEST stock
+CHECK( sol == exp_sol )
+{ (9,2), (5,3), (6,4), (2,5), (8,9), (2,10) }
+==
+{ (9,2), (5,3), (6,4), (2,5), (8,9), (2,10) }
+RESULT=true
+CHECK( sol == exp_sol )
+{ (9,2), (5,3), (6,4), (2,5), (8,9) }
+==
+{ (9,2), (5,3), (6,4), (2,5), (8,9) }
+RESULT=true
+CHECK( sol == exp_sol )
+{ (9,2), (5,3), (6,4), (2,5), (3,9) }
+==
+{ (9,2), (5,3), (6,4), (2,5), (3,9) }
+RESULT=true
+CHECK( sol == exp_sol )
+{ (9,2), (5,3), (6,4), (1,5) }
+==
+{ (9,2), (5,3), (6,4), (1,5) }
+RESULT=true
+END TEST stock
+----------------------------------
+
+
+----------------------------------
+BEGIN TEST gas
+CHECK( sol.size() == exp_sol.size() )
+0 == 2
+RESULT=false
+CHECK( sol.size() == exp_sol.size() )
+0 == 4
+RESULT=false
+CHECK( sol.size() == exp_sol.size() )
+0 == 8
+RESULT=false
+CHECK( sol.size() == exp_sol.size() )
+0 == 9
+RESULT=false
+CHECK( sol.size() == exp_sol.size() )
+0 == 13
+RESULT=false
+END TEST gas
+----------------------------------
+
+
+Sun Mar 21 15:02:11 UTC 2021
