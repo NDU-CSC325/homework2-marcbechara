@@ -3,8 +3,8 @@ Scanning dependencies of target testAll
 [ 66%] Building CXX object CMakeFiles/testAll.dir/testAll.cpp.o
 In file included from /home/runner/work/autograding/autograding/tmp/tests/testAll.cpp:5:
 /home/runner/work/autograding/autograding/tmp/tests/../include/hw2.h: In function ‘std::vector<std::pair<int, int> > stock(std::vector<std::pair<int, int> >&, int)’:
-/home/runner/work/autograding/autograding/tmp/tests/../include/hw2.h:95:1: warning: control reaches end of non-void function [-Wreturn-type]
-   95 | }
+/home/runner/work/autograding/autograding/tmp/tests/../include/hw2.h:108:1: warning: control reaches end of non-void function [-Wreturn-type]
+  108 | }
       | ^
 [100%] Linking CXX executable testAll
 [100%] Built target testAll
