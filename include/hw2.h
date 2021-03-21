@@ -40,7 +40,17 @@ using Job = std::pair<int, int>;
  * @return minimum time needed to perform all jobs
  */
 int finish(std::vector<Job>& jobs) {
-    return 0;
+  
+    int finish{ -1 };
+    int buffer{0};
+    for (int i = 0; i < jobs.size(); ++i) {
+        buffer +=  jobs[i].first;
+        int temp = buffer + jobs[i].second;
+        if (temp > finish)finish = temp;
+    }
+
+    return finish; 
+    
 }
 /**
  *  schedule()->std::vector<Job>
@@ -49,7 +59,10 @@ int finish(std::vector<Job>& jobs) {
  * @return order to preprocess all jobs to obtain minimum total time
  */
 std::vector<Job> schedule(std::vector<Job>& jobs) {
-    return std::vector<Job> {};
+    std::vector<Job> v(jobs);
+    std::sort(v.begin(), v.end(), [](auto& left, auto& right) {
+        return left.second < right.second; });
+    return v;
 }
 
 
