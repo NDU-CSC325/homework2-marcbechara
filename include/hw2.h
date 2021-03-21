@@ -74,5 +74,22 @@ using Stock = std::pair<int, int>;
  * @return list of stocks bought in the form (number of shares,price per share)
  */
 std::vector<Stock> stock(std::vector<Stock>& values, int budget) {
-    return std::vector<Stock> {};
+    std::vector<Stock> v(values);
+    std::sort(v.begin(), v.end(), [](auto& left, auto& right) {
+        return left.second < right.second;});
+
+    for (auto it = v.begin(); it != v.end(); it++) {
+        auto res = (*it).first * (*it).second;
+        if(res < budget) budget -= res;
+        
+        else if ( budget / (*it).second == 0) {
+            v.erase(it, v.end());
+            return v;
+        }
+        else {
+            auto temp = budget / (*it).second;
+            (*it).first = temp;
+            budget = budget - ((*it).second * temp);
+        }
+    }
 }
