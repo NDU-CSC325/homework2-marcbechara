@@ -55,13 +55,13 @@ int finish(std::vector<Job>& jobs) {
 /**
  *  schedule()->std::vector<Job>
  * 
- * @param jobs
+ * @param jobs                                              
  * @return order to preprocess all jobs to obtain minimum total time
  */
 std::vector<Job> schedule(std::vector<Job>& jobs) {
     std::vector<Job> v(jobs);
     std::sort(v.begin(), v.end(), [](auto& left, auto& right) {
-        return left.second < right.second; });
+        return (left.second > right.second ); });
     return v;
 }
 
