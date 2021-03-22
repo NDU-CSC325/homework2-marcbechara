@@ -1,20 +1,20 @@
 ----------------------------------
 BEGIN TEST schedule
 CHECK( completion==exp_completion )
-108 == 90
-RESULT=false
+99 == 99
+RESULT=true
 CHECK( completion==exp_completion )
-115 == 94
-RESULT=false
+86 == 86
+RESULT=true
 CHECK( completion==exp_completion )
-97 == 82
-RESULT=false
+107 == 107
+RESULT=true
 CHECK( completion==exp_completion )
-104 == 90
-RESULT=false
+60 == 60
+RESULT=true
 CHECK( completion==exp_completion )
-147 == 123
-RESULT=false
+63 == 63
+RESULT=true
 END TEST schedule
 ----------------------------------
 
@@ -60,10 +60,10 @@ CHECK( sol.size() == exp_sol.size() )
 0 == 10
 RESULT=false
 CHECK( sol.size() == exp_sol.size() )
-0 == 12
+0 == 11
 RESULT=false
 END TEST gas
 ----------------------------------
 
 
-Sun Mar 21 20:19:56 UTC 2021
+Mon Mar 22 08:05:26 UTC 2021
