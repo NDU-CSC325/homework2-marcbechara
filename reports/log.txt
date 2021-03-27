@@ -1,19 +1,19 @@
 ----------------------------------
 BEGIN TEST schedule
 CHECK( completion==exp_completion )
-99 == 99
+104 == 104
 RESULT=true
 CHECK( completion==exp_completion )
-68 == 68
+75 == 75
 RESULT=true
 CHECK( completion==exp_completion )
-90 == 90
+61 == 61
 RESULT=true
 CHECK( completion==exp_completion )
-84 == 84
+141 == 141
 RESULT=true
 CHECK( completion==exp_completion )
-78 == 78
+69 == 69
 RESULT=true
 END TEST schedule
 ----------------------------------
@@ -48,22 +48,22 @@ END TEST stock
 ----------------------------------
 BEGIN TEST gas
 CHECK( sol.size() == exp_sol.size() )
-2 == 1
-RESULT=false
+2 == 2
+RESULT=true
 CHECK( sol.size() == exp_sol.size() )
 4 == 4
 RESULT=true
 CHECK( sol.size() == exp_sol.size() )
-6 == 6
+8 == 8
 RESULT=true
 CHECK( sol.size() == exp_sol.size() )
-10 == 10
+9 == 9
 RESULT=true
 CHECK( sol.size() == exp_sol.size() )
-13 == 14
-RESULT=false
+13 == 13
+RESULT=true
 END TEST gas
 ----------------------------------
 
 
-Sat Mar 27 13:53:00 UTC 2021
+Sat Mar 27 14:52:25 UTC 2021
