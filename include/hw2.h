@@ -17,22 +17,14 @@
  */
 std::vector<int> stops(std::vector<int>& stations, int distanceToB, int distanceOnFull) {
     std::vector<int> v;
-    auto d = distanceOnFull;
-    d = d - stations[0];
-    for (int i = 1; i < stations.size()-1; ++i) {
-        auto temp = stations[i]-stations[i-1];
-        d = d - temp;
-        if ((d - (stations[i + 1] - stations[i])) < 0) {
+    int d = 0;
+    for (int i = 0; i < stations.size()-1; i++) {
+        if (stations[i+1] - d > distanceOnFull) {
             v.push_back(stations[i]);
-            d = distanceOnFull;
+            d = stations[i];
         }
-   
-        else if (d == 0) {
-            v.push_back(stations[i]);
-            d = distanceOnFull;
-        }
-      
     }
+  
     return v;
 }
 
