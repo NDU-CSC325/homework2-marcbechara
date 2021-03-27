@@ -1,5 +1,5 @@
-TEST schedule	0/5
+TEST schedule	5/5
 TEST stock	4/4
 TEST gas	0/5
-Total 35/100
-Sun Mar 21 20:19:56 UTC 2021
+Total 75/100
+Mon Mar 22 08:05:26 UTC 2021
