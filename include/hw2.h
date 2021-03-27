@@ -18,13 +18,14 @@
 std::vector<int> stops(std::vector<int>& stations, int distanceToB, int distanceOnFull) {
     std::vector<int> v;
     int d = 0;
-    
     for (int i = 1; i < stations.size()-1; i++) {
         if ((stations[i+1] - d > distanceOnFull) || (stations[i + 1] - d == distanceOnFull)) {
             v.push_back(stations[i]);
             d = stations[i];
         } 
+       
     }
+    if (distanceToB - d > distanceOnFull)v.push_back(stations[stations.size() - 1]);
   
     return v;
 }
