@@ -16,7 +16,24 @@
  * @return locations of minimum set of stations the traveler stops on
  */
 std::vector<int> stops(std::vector<int>& stations, int distanceToB, int distanceOnFull) {
-    return std::vector<int> {};
+    std::vector<int> v;
+    auto d = distanceOnFull;
+    d = d - stations[0];
+    for (int i = 1; i < stations.size()-1; ++i) {
+        auto temp = stations[i]-stations[i-1];
+        d = d - temp;
+        if ((d - (stations[i + 1] - stations[i])) < 0) {
+            v.push_back(stations[i]);
+            d = distanceOnFull;
+        }
+   
+        else if (d == 0) {
+            v.push_back(stations[i]);
+            d = distanceOnFull;
+        }
+      
+    }
+    return v;
 }
 
 /***********************************************************/
