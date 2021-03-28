@@ -16,7 +16,19 @@
  * @return locations of minimum set of stations the traveler stops on
  */
 std::vector<int> stops(std::vector<int>& stations, int distanceToB, int distanceOnFull) {
-    return std::vector<int> {};
+    std::vector<int> v;
+    int d = 0;
+    for (int i = 0; i < stations.size()-1; i++) {
+         if ((stations[i + 1] - d > distanceOnFull) ) {
+
+            v.push_back(stations[i]);
+            d = stations[i];
+        } 
+       
+    }
+    if (distanceToB - d > distanceOnFull)v.push_back(stations[stations.size() - 1]);
+  
+    return v;
 }
 
 /***********************************************************/
@@ -40,16 +52,29 @@ using Job = std::pair<int, int>;
  * @return minimum time needed to perform all jobs
  */
 int finish(std::vector<Job>& jobs) {
-    return 0;
+  
+    int finish{ -1 };
+    int buffer{0};
+    for (int i = 0; i < jobs.size(); ++i) {
+        buffer +=  jobs[i].first;
+        int temp = buffer + jobs[i].second;
+        if (temp > finish)finish = temp;
+    }
+
+    return finish; 
+    
 }
 /**
  *  schedule()->std::vector<Job>
  * 
- * @param jobs
+ * @param jobs                                              
  * @return order to preprocess all jobs to obtain minimum total time
  */
 std::vector<Job> schedule(std::vector<Job>& jobs) {
-    return std::vector<Job> {};
+    std::vector<Job> v(jobs);
+    std::sort(v.begin(), v.end(), [](auto& left, auto& right) {
+        return (left.second > right.second ); });
+    return v;
 }
 
 
@@ -74,5 +99,22 @@ using Stock = std::pair<int, int>;
  * @return list of stocks bought in the form (number of shares,price per share)
  */
 std::vector<Stock> stock(std::vector<Stock>& values, int budget) {
-    return std::vector<Stock> {};
+    std::vector<Stock> v(values);
+    std::sort(v.begin(), v.end(), [](auto& left, auto& right) {
+        return left.second < right.second;});
+
+    for (auto it = v.begin(); it != v.end(); it++) {
+        auto res = (*it).first * (*it).second;
+        if(res < budget) budget -= res;
+        
+        else if ( budget / (*it).second == 0) {
+            v.erase(it, v.end());
+            return v;
+        }
+        else {
+            auto temp = budget / (*it).second;
+            (*it).first = temp;
+            budget = budget - ((*it).second * temp);
+        }
+    }
 }

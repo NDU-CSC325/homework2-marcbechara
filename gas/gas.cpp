@@ -16,7 +16,7 @@
 int main()
 {
 
-    const int distanceToB = 100;
+    const int distanceToB = 10;
     const int distanceOnFull = 20;
     std::vector<int> stations{ 2,7,13,18,22,25,29,31,32,39,42,44,46,53,56,61,67,75,78,87,89,92,95,99 };
     auto s = stops(stations, distanceToB, distanceOnFull);
